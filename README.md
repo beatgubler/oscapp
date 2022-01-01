@@ -25,6 +25,16 @@ Now optimized for Angular 13!
 * Clone this project with **git clone https://github.com/beatgubler/oscapp.io.git** or download manually
 **npm install** -> **ng serve**
 
+## Configuration
+### Firebase Console
+* Log into https://console.firebase.google.com/
+* Create New Project
+* Create Firestore Database
+* Create Authentication method: Email/Password + Google
+* Add App and copy the firebaseConfig
+### Application
+* replace the firebaseConfig with your own config from the Firebase Console
+
 
 ## Notable external dependencies
 * Firebase - https://www.npmjs.com/package/firebase
