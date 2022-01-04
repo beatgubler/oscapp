@@ -1,4 +1,4 @@
-# oscapp.io
+# oscapp
 
 ## Description
 An opensource chat application built on Angular 13 and Firebase as BaaS.
