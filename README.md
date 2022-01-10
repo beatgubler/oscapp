@@ -9,13 +9,10 @@ Feel free to leave your suggestions, problems, safety concerns or questions in t
 
 ## Features:
 * live chat-application
-* responsive design (mobile first)
 * local and Google authentication
 * persistent login
 
-#### Livepreview: [https://chat.gubler-it.com](https://chat.gubler-it.com)
-![Version](https://img.shields.io/badge/Version-v0.8.3-green)
-Now optimized for Angular 13!
+#### Livepreview: [https://oscapp.gubler-it.com](https://oscapp.gubler-it.com)
 
 ![oscapp.io [Preview]](https://i.imgur.com/5aglXqM.png)
 
@@ -31,17 +28,19 @@ Now optimized for Angular 13!
 * Create New Project
 * Create Firestore Database
 * Create Authentication method: Email/Password + Google
+* Create Firebase Storage
 * Add App and copy the firebaseConfig
 ### Application
 * replace the firebaseConfig with your own config from the Firebase Console
 
-
 ## Notable external dependencies
 * Firebase - https://www.npmjs.com/package/firebase
 * AngularFire - https://www.npmjs.com/package/@angular/fire
+* Angular Material - https://www.npmjs.com/package/@angular/material
 
+## ToDo
+* responsive (mobile first) design
 
 ## Known issues/concerns
-* firebase security rules are not restrictive enough
 * to cut down on firebase requests, functions should be used
 * angularfire's modular API should be used
