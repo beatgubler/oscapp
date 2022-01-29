@@ -1,0 +1,11 @@
+.container {
+  margin: auto;
+  width: 800px;
+  padding-top:0px;
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+}
