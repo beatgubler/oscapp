@@ -3,7 +3,7 @@
 ## Description
 An opensource chat application built on Angular 13 and Firebase as BaaS.
 The point of this project is, to learn and build an opensource chat-application.
-It is meant to be run on a single host and the free firebase plan, so that  everyone can build/run/develop/deploy it.
+It is meant to be run on a single host and the free firebase plan, so that everyone can build/run/develop/deploy it.
 
 Feel free to leave your suggestions, problems, safety concerns or questions in the respected section here on Github.
 
@@ -14,7 +14,7 @@ Feel free to leave your suggestions, problems, safety concerns or questions in t
 
 #### Livepreview: [https://oscapp.gubler-it.com](https://oscapp.gubler-it.com)
 
-![oscapp.io [Preview]](https://i.imgur.com/5aglXqM.png)
+![oscapp [Preview]](https://i.imgur.com/TBkVqF5.png)
 
 ## Installation
 * Install NodeJS -> https://nodejs.org/en/download/
