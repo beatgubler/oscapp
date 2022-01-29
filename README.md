@@ -26,7 +26,27 @@ Feel free to leave your suggestions, problems, safety concerns or questions in t
 ### Firebase Console
 * Log into https://console.firebase.google.com/
 * Create New Project
-* Create Firestore Database
+* Create Firestore Database and change the rules to:
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /messages/{messageId} {
+      allow read: if
+          request.auth != null;
+      allow create, update: if
+          request.auth != null && request.auth.uid == request.resource.data.uid;
+      allow delete: if
+      		request.auth != null && request.auth.uid == resource.data.uid;
+    }
+    match /users/{userId} {
+      allow read: if
+          request.auth != null && request.auth.uid == userId;
+      allow create: if
+          request.auth != null;
+      allow update: if
+      		request.auth != null && request.auth.uid == resource.data.uid;
+    }
+  }
+}
 * Create Authentication method: Email/Password + Google
 * Create Firebase Storage
 * Add App and copy the firebaseConfig
