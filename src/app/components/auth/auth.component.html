@@ -1,0 +1,32 @@
+<mat-card>
+  <div class="right">
+    <p>
+      <button *ngIf="this.isLogin" (click)="switchAuthModeHandler()" mat-raised-button color="secondary">Create new account</button>
+      <button *ngIf="!this.isLogin" (click)="switchAuthModeHandler()" mat-raised-button color="secondary">Login with existing account</button>
+    </p>
+  </div>
+  <form #form="ngForm">
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" name="email" ngModel required #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+      <mat-error *ngIf="email.errors && (email.dirty || email.touched)">Email is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" name="password" ngModel required #password="ngModel" minlength=8>
+      <mat-error *ngIf="password.errors && (password.dirty || password.touched)">Password is required</mat-error>
+    </mat-form-field>
+
+    <div class="loginButtons">
+      <button style="width:100%" type="submit" *ngIf="this.isLogin"  [disabled]="form.invalid" mat-raised-button color="primary" (click)="_authService.signIn(email.value, password.value)">Login</button>
+      <button style="width:100%" type="submit" *ngIf="!this.isLogin" [disabled]="form.invalid" mat-raised-button color="primary" (click)="_authService.createUser(email.value, password.value)">Register</button>
+      <button style="width:100%" mat-raised-button color="accent" *ngIf="this.isLogin" (click)="_authService.googleAuth()">Login with Google</button>
+      <button style="width:100%" mat-raised-button color="secondary" *ngIf="this.isLogin" [disabled]="email.errors && !email.valid" (click)="_authService.resetPassword(email.value)">Reset Password</button>    
+    </div>
+
+  </form>
+  <div>
+  </div>
+</mat-card>

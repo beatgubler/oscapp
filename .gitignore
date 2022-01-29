@@ -3,9 +3,18 @@
 # compiled output
 /dist
 /tmp
+/.angular
 
 # dependencies
 /node_modules
 
 # GitHub README.md
- /README.md
+/README.md
+
+# Firebase Hosting
+/.firebase
+/.firebaserc
+/firebase.json
+
+# Editor
+/.editorconfig

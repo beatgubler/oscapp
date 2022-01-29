@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <a mat-button routerLink="/"><h1><img src="assets/favicon.ico"> oscapp</h1></a>
+    <span class="menu-spacer"></span>
+    <div>
+      <a *ngIf="email" [routerLinkActive]="['active']" mat-button routerLink="/chat">Chat</a>
+      <a *ngIf="email" [routerLinkActive]="['active']" mat-button routerLink="/profile">Profile</a>
+    </div>
+    <span class="flexExpand"></span>
+    <div>
+      <a class="noPointer" mat-button routerLink="/profile">{{email}}</a>
+      <a *ngIf="!email" mat-button [routerLinkActive]="['active']" routerLink="/auth">Login</a>
+      <a *ngIf="email" mat-button (click)="_authService.signOut()">Logout</a>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+

@@ -1,0 +1,34 @@
+<mat-card>
+  <div class="chat" #container>
+    <div *ngFor='let message of messages'>
+      <div *ngIf="userData" class="messageContainer" [ngClass]="{'received': message.payload.doc.data().uid !== userData.uid, 'sent': message.payload.doc.data().uid === userData.uid}">
+        <!-- <mat-icon class="icon-display" aria-hidden="false" aria-label="Example home icon">face</mat-icon> -->
+        <div class="avatar">
+          <img [src]="message.payload.doc.data().avatar" alt="">
+        </div>
+        <div class="message">
+          <div>
+            <b>{{message.payload.doc.data().name}}</b>
+          </div>
+          <div>
+            {{message.payload.doc.data().message}}
+            <a style="cursor: pointer; font-weight: bold;" *ngIf="message.payload.doc.data().uid === userData.uid" (click)="_chatService.deleteMessage(message.payload.doc.id)">x</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form #form="ngForm" (ngSubmit)="submitHandler(message.value); form.resetForm();" novalidate>
+    <div>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Message</mat-label>
+        <input matInput #message minlength=2 required [(ngModel)]="messageValue" placeholder="" value="" name="messageValue" autocomplete="off">
+      </mat-form-field>
+      <button [disabled]="form.invalid" mat-raised-button color="primary">Send</button>
+      <div class="right">
+        <button mat-button type="button" color="primary" (click)="toggleScrolling()">Autoscroll: {{scrolling ? 'On' : 'Off' }}</button>
+      </div>
+    </div>
+  </form>
+  
+</mat-card>

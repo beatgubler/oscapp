@@ -1,0 +1,45 @@
+<mat-card>
+    
+  <form #avatarForm="ngForm">
+    <div *ngIf="userData">
+      <img [src]="userData.avatar" alt="avatar" height="100px" width="100px">
+    </div>
+    <mat-form-field style="width: 100%;">
+			<mat-label>New Avatar</mat-label>
+			<button mat-icon-button matPrefix (click)="avatar.click()">
+        <mat-icon>attach_file</mat-icon>
+      </button>
+			<input type="text" required [value]="uploadImageName" readonly matInput (click)="avatar.click()"/>
+			<input type="file" required hidden #avatar accept=".png,.jpg" (change)="setUploadImage($event)" [(ngModel)]="avatarValue" name="avatarValue"/>
+      <mat-hint>Maximum filesize: 2MB, Optimal dimensions: 50px x 50px, file extensions: .png or .jpg</mat-hint>
+		</mat-form-field>
+    <div>
+      <button mat-raised-button color="primary" (click)="_profileService.upload(userData.uid, uploadImage)" [disabled]="avatarForm.invalid">Update Avatar</button>
+    </div>
+  </form>
+
+  <form #usernameForm="ngForm">
+    <p *ngIf="userData">Current Username: {{userData.name}}</p>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>New Username</mat-label>
+      <input matInput required minlength=3 type="text" placeholder="" value="" #username [(ngModel)]="usernameValue" name="usernameValue">
+      <mat-hint>Minimum 3 characters</mat-hint>
+    </mat-form-field>
+    <div>
+      <button mat-raised-button color="primary" [disabled]="usernameForm.invalid" (click)="_profileService.updateUsername(userData.uid, username.value)">Update Username</button>
+    </div>
+  </form>
+
+  <form #passwordForm="ngForm">
+    <mat-form-field appearance="fill" class="full-width" >
+      <mat-label>New Password</mat-label>
+      <input matInput required minlength="8" [disabled]="!localProvider" type="password" placeholder="" value="" #password [(ngModel)]="passwordValue" name="passwordValue">
+      <mat-hint *ngIf="localProvider">Minimum 8 characters</mat-hint>
+      <mat-hint *ngIf="!localProvider">Google passwords cannot be changed here</mat-hint>
+    </mat-form-field>
+    <div>
+      <button mat-raised-button color="primary" [disabled]="passwordForm.invalid || !localProvider" (click)="_profileService.updatePassword(password.value)">Update Password</button>
+    </div>
+  </form>
+  
+</mat-card>

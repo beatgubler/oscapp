@@ -1,0 +1,11 @@
+.flexExpand {
+  flex: 1 1 auto;
+}
+
+a.noPointer {
+  cursor: default;
+}
+
+a.active {
+  background-color: #506772;
+}
