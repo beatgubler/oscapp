@@ -8,6 +8,7 @@ It is meant to be run on a single host and the free firebase plan, so that every
 Feel free to leave your suggestions, problems, safety concerns or questions in the respected section here on Github.
 
 ## Features:
+* responsive (mobile first) design
 * live chat-application
 * local and Google authentication
 * persistent login
@@ -61,10 +62,8 @@ service cloud.firestore {
 * Angular Material - https://www.npmjs.com/package/@angular/material
 
 ## ToDo
-* responsive (mobile first) design
+* 
 
 ## Known issues/concerns
 * to cut down on firebase requests, functions should be used
 * angularfire's modular API should be used
-
-test
